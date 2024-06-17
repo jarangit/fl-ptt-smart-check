@@ -28,7 +28,7 @@ export default function RootLayout({
             height={100}
           />
         </div>
-        <div>  Mobile version is developing, You can try with  Desktop</div>
+        <div className="text-center w-[300px]">  Mobile version is developing, You can try with  Desktop</div>
       </div>
       <body className="hidden lg:block">
         <TopMenu />
