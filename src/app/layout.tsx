@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import SideMenu from '../components/layouts/sideMenu'
 import TopMenu from '../components/layouts/topMenu'
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body >
+      <div className="lg:hidden h-screen w-full flex flex-col justify-center items-center text-blue-400">
+        <div>
+          <Image
+            src={'/images/logo.png'}
+            alt=''
+            width={100}
+            height={100}
+          />
+        </div>
+        <div>  Mobile version is developing, You can try with  Desktop</div>
+      </div>
+      <body className="hidden lg:block">
         <TopMenu />
         <div className="flex">
           <SideMenu />
