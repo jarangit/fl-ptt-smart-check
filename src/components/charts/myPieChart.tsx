@@ -2,14 +2,16 @@
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, } from 'recharts';
 
-const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 500 },
-];
+// const data = [
+//   { name: 'Group A', value: 400 },
+//   { name: 'Group B', value: 500 },
+// ];
 const COLORS = ['#2A84CB', '#BBBBBB'];
-type Props = {}
+type Props = {
+  data: any
+}
 
-const MyPieChart = (props: Props) => {
+const MyPieChart = ({ data }: Props) => {
   const [isSSR, setIsSSR] = useState<any>(true)
   useEffect(() => {
     setIsSSR(false)
@@ -18,7 +20,7 @@ const MyPieChart = (props: Props) => {
     <div className=' '>
       {!isSSR && (
         <div className=' h-[200px] w-[200px] relative'>
-          <div className='absolute  flex justify-center items-center w-full h-full'>chart</div>
+          <div className='absolute flex justify-center items-center w-full h-full text-blue-300 font-medium'>30%</div>
           <ResponsiveContainer>
             <PieChart >
               <Pie
@@ -29,7 +31,7 @@ const MyPieChart = (props: Props) => {
                 dataKey="value"
                 stroke='null'
               >
-                {data.map((entry, index) => (
+                {data && data.length && data.map((entry: any, index: number) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>

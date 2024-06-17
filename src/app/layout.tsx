@@ -22,7 +22,7 @@ export default function RootLayout({
         <TopMenu />
         <div className="flex">
           <SideMenu />
-          <div className="p-5 w-full">
+          <div className="p-5 w-full max-h-[90vh] overflow-y-scroll">
             {children}
           </div>
         </div>
